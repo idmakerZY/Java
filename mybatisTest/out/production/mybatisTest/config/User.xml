@@ -10,7 +10,7 @@
         <result column="userAge" property="userAge" />
         <result column="userAddress" property="userAddress" />
     </resultMap>
-    <select id="selectUserByID" parameterType="int" resultType="User">
+    <select id="selectUserByID" parameterType="int" resultMap="resultListUser">
         select * from user where id = #{id}
     </select>
 
@@ -41,7 +41,7 @@
         delete from user where id=#{id}
     </delete>
 
-    <!-- User 联合文章进行查询 方法之二的配置 (多对一的方式) -->
+    <!-- User 联合Article进行查询 方法之二的配置 (多对一的方式) -->
     <resultMap id="resultUserArticleList" type="Article">
         <id property="aid" column="aid" />
         <result property="title" column="title" />

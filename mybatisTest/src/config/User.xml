@@ -14,7 +14,7 @@
         select * from user where id = #{id}
     </select>
 
-    <!-- 返回list 的select 语句，注意 resultMap 的值是指向前面定义好的 -->
+    <!-- 返回list 的select 语句，返回类型应该用resultMap，注意 resultMap 的值是指向前面定义好的 -->
     <select id="selectUsers" parameterType="string" resultMap="resultListUser">
         select * from user where userName like #{userName}
     </select>
@@ -41,7 +41,7 @@
         delete from user where id=#{id}
     </delete>
 
-    <!-- User 联合文章进行查询 方法之二的配置 (多对一的方式) -->
+    <!-- User 联合Article进行查询 方法之二的配置 (多对一的方式) -->
     <resultMap id="resultUserArticleList" type="Article">
         <id property="aid" column="aid" />
         <result property="title" column="title" />
